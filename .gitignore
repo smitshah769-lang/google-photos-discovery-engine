@@ -1,0 +1,17 @@
+data/*
+photo_retrieval_feedback.json
+node_modules/
+app/.next/
+app/node_modules/
+!data/.gitkeep
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.db-journal
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+*.egg-info/

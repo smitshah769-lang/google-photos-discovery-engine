@@ -1,0 +1,86 @@
+{
+  "version": "research_v1",
+  "taxonomy_version": "research_v1",
+  "notes": "Gold labels from Training Data.md examples. Pain-point labels only on actionable signals.",
+  "multi_label_counting_rule": "An item may carry multiple overarching themes and sub-themes. Forum solution/question replies are no-signal and get no pain-point labels.",
+  "items": [
+    {
+      "id": "gold_design_missing_search",
+      "case": "design_issues",
+      "text": "where is the search button after the recent update ? I can't find it anywhere ... google website docs page say At the bottom, tap Search.",
+      "labels": ["design_missing_search_control", "design_issues"]
+    },
+    {
+      "id": "gold_design_date_grouping",
+      "case": "design_issues",
+      "text": "Date grouping disappeared! I've been using Google Photos for years but recently an update removed the photos being grouped by date. Makes it much harder to organise and view my photos.",
+      "labels": ["design_date_grouping", "design_ui_navigation", "design_issues"]
+    },
+    {
+      "id": "gold_system_face",
+      "case": "system_issues",
+      "text": "Face search categories are inconsistent, app will separate people into two different profiles or won't acknowledge faces in some photos.",
+      "labels": ["system_face_grouping", "system_issues"]
+    },
+    {
+      "id": "gold_system_filename",
+      "case": "system_issues",
+      "text": "search for a photo by filename, it will not find it and instead show you dozens and dozens of files not with that name",
+      "labels": ["system_metadata_gaps", "system_other_failures", "system_issues"]
+    },
+    {
+      "id": "gold_query_followup",
+      "case": "query_inference",
+      "text": "AI has made this useless With the recent updates I increasingly find if I search for any photos, then issue a follow up query, it will completely ignore the initial search results and describe some random photo from my library.",
+      "labels": ["query_followup_ignored", "query_inference"]
+    },
+    {
+      "id": "gold_knowledge_til",
+      "case": "knowledge_awareness_gaps",
+      "text": "TIL. You can search your images for what they contain I didn't know until today when I'm frantically looking for a photo, I just happened to type in search what the photo had (bees).",
+      "labels": ["knowledge_unknown_capability", "knowledge_awareness_gaps"]
+    },
+    {
+      "id": "gold_face_toggle_search_bar",
+      "case": "system_issues",
+      "text": "I accidentally turned off face grouping and now if I turn it on I can't see it in my search bar",
+      "labels": ["system_face_grouping", "system_issues"]
+    },
+    {
+      "id": "gold_face_not_tagged",
+      "case": "system_issues",
+      "text": "Faces not being tagged in some pictures I disabled Face Grouping and re enabled it to correct an issue where it was not tagging most of the pictures of my newborn daughter and the ones it did tag it would group it with my youngest son's face.",
+      "labels": ["system_face_grouping", "system_issues"]
+    },
+    {
+      "id": "gold_maps_navigation",
+      "case": "design_issues",
+      "text": "Where is the Maps feature? So I got the new Google Photos, with the new logo and all... Except the Map feature, I can't find it when I go to places or the way I see on the blog posts I could find.",
+      "labels": ["design_ui_navigation", "design_issues"]
+    },
+    {
+      "id": "gold_shared_albums_navigation",
+      "case": "design_issues",
+      "text": "Where do I view my shared albums? So Google photos just updated and for the life of me I can't find where my shared albums are. There's no more shared icon on the bottom banner",
+      "labels": ["design_ui_navigation", "design_issues"]
+    },
+    {
+      "id": "gold_forum_reply_search_bar_tip",
+      "case": "no_signal",
+      "text": "Go into the search bar in GP in browser and then select show more in the middle section. Should be right at the bottom.",
+      "labels": []
+    },
+    {
+      "id": "gold_no_signal_opinion",
+      "case": "no_signal",
+      "text": "I can't ever find my pictures!",
+      "labels": []
+    },
+    {
+      "id": "gold_forum_reply",
+      "case": "no_signal",
+      "text": "Doesn't sound particularly serious after reading your subsequent posts. Find them and put them in an album called pictures of myself. Good luck.",
+      "labels": []
+    }
+  ]
+}

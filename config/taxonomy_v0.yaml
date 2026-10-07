@@ -1,0 +1,96 @@
+# Versioned retrieval-problem taxonomy. Reference nodes by `id` in code and DB.
+version: v0
+description: Seed taxonomy from problem statement incomplete-memory scenarios.
+
+nodes:
+  - id: incomplete_memory
+    name: Incomplete memory
+    parent_id: null
+    definition: User knows a photo exists but memory is partial (place, person, object, or rough time without exact date).
+    examples:
+      - café during a trip with no date
+      - sibling on a holiday without which holiday
+
+  - id: incomplete_memory_place_event
+    name: Place and event, no date
+    parent_id: incomplete_memory
+    definition: Location and occasion are known; specific date is missing.
+    examples:
+      - "That small café we went to during our Goa trip"
+
+  - id: incomplete_memory_person_occasion
+    name: Person and occasion, vague
+    parent_id: incomplete_memory
+    definition: Person and general occasion known; which event or year is unclear.
+    examples:
+      - "Photos with my brother from that holiday"
+
+  - id: incomplete_memory_object_time
+    name: Object and rough time
+    parent_id: incomplete_memory
+    definition: Object type and approximate timeframe without exact metadata.
+    examples:
+      - "Screenshot of that error message from months ago"
+      - "Picture of the medicine when I was sick last year"
+
+  - id: query_formulation_mismatch
+    name: Query formulation / keyword mismatch
+    parent_id: null
+    definition: User search terms do not match how photos are indexed or labeled.
+    examples:
+      - searching wrong keywords despite knowing some details
+
+  - id: metadata_gaps
+    name: Metadata gaps
+    parent_id: null
+    definition: Missing or wrong date, location, or people tags block retrieval.
+    examples:
+      - wrong date on photo
+      - face not grouped correctly
+
+  - id: library_scale_recency
+    name: Library scale and old photos
+    parent_id: null
+    definition: Large libraries or very old photos make browse and search harder.
+    examples:
+      - thousands of photos
+      - photos from many years ago
+
+  - id: search_abandonment
+    name: Search abandonment
+    parent_id: null
+    definition: User gives up after a few failed attempts without naming a single problem type.
+    examples:
+      - stopped after two or three tries
+      - gave up and scrolled manually
+
+  - id: workarounds_succeeded
+    name: Workarounds that worked
+    parent_id: null
+    definition: User found the photo via a non-search strategy.
+    examples:
+      - manual browse or years view
+      - partner's phone or shared album
+
+  - id: query_failure_complete_info
+    name: Search failed with complete information
+    parent_id: null
+    definition: User had exact date or clear query and search still failed — product/query failure, not incomplete memory.
+    examples:
+      - knew the exact day but search returned nothing
+
+  - id: deleted_locked_partner_sharing
+    name: Deleted, locked, or partner sharing
+    parent_id: null
+    definition: Photo missing due to trash, locked folder, or sharing — not incomplete-memory retrieval.
+    examples:
+      - photos in trash
+      - partner account or shared library confusion
+
+  - id: backup_sync_storage
+    name: Backup, sync, and storage
+    parent_id: null
+    definition: Backup, sync, quota, or device migration — not finding a known item in the library.
+    examples:
+      - photos not backed up
+      - missing after phone change

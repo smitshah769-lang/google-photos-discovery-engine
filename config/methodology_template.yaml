@@ -1,0 +1,34 @@
+# Template for MethodologySnapshot.open_decisions (architecture §16). Values may be TBD at Phase 0.
+open_decisions:
+  app_store_storefronts_and_play_locales:
+    status: tbd
+    notes: "Confirm storefront list and Play hl/gl locales for the snapshot run."
+  reddit_subreddits_and_keywords:
+    status: tbd
+    notes: "Beyond r/googlephotos; keyword set for Arctic Shift search."
+  community_discovery_mode:
+    status: tbd
+    options: [cse_only, browse_only, cse_then_browse]
+    notes: "CSE 100 queries/day vs browse HTML recency bias."
+  embedding_and_chat_model_ids:
+    status: recorded
+    notes: "Default classification provider is heuristic_v0 for offline runs; set ollama + model_id for local LLM. Embedding default hashing-v0 until Phase 3 freezes sentence-transformers/Ollama id."
+  gold_label_sample_size:
+    status: recorded
+    notes: "config/gold_set.json — 12 items covering retrieval vs backup/delete, complete-info failure, non-example incomplete memory, workarounds, abandonment, multi-label."
+  rag_synthesis_mode:
+    status: tbd
+    options: [extractive_snippets_only, cited_summary_optional]
+    notes: "Default snippets-first; cited summary gated on citation tests."
+  frozen_artifact_hosting:
+    status: recorded
+    options: [localhost, internal_url, static_export]
+    notes: "Default bind 127.0.0.1. Optional HTTP basic auth via DISCOVERY_BASIC_USER/PASSWORD. Warn if binding 0.0.0.0 without auth. Serve export with python -m pipeline serve --export-dir."
+
+limitations_seed:
+  - "Public feedback only; not a census of all Google Photos users."
+  - "App Store RSS ~500 recent written reviews per storefront."
+  - "Play batchexecute is undocumented and may break."
+  - "Reddit via Arctic Shift is subreddit-scoped keyword search."
+  - "Help Community discovery is not a complete forum census."
+  - "No access to private libraries or Photos internal telemetry."

@@ -1,0 +1,132 @@
+# Research taxonomy aligned with Training Data.md (photo search / retrieval study).
+version: research_v1
+description: Overarching pain-point themes and sub-themes. Themes are not mutually exclusive.
+
+nodes:
+  - id: design_issues
+    name: Design Issues
+    parent_id: null
+    definition: Difficulty understanding or navigating search UI, or preference for older search functionality.
+    examples:
+      - where is the search button after the recent update
+      - date grouping disappeared
+
+  - id: design_ui_navigation
+    name: Search UI hard to navigate
+    parent_id: design_issues
+    definition: >-
+      Difficulty understanding and navigating the UI to find photos or a photo-finding view
+      (Map, Places, People, Albums, shared albums).
+    examples:
+      - photos cluttered together and hard to find
+      - where is the Maps feature? I can't find it when I go to places
+      - where do I view my shared albums? there's no more shared icon
+
+  - id: design_prefer_previous_ui
+    name: Prefer previous search UI
+    parent_id: design_issues
+    definition: UI changes, with users preferring the older or previous search functionality.
+    examples:
+      - search doesn't work like it used to
+
+  - id: design_missing_search_control
+    name: Search button or feature removed/moved
+    parent_id: design_issues
+    definition: >-
+      An app update removed, relocated, or hid the search entry point itself (search button,
+      search bar or tab) or a specific search function (More like this, search by image, a search
+      filter, keyword search replaced by Ask), so the user cannot reach search. Merely typing into
+      the search bar, poor results, or a face group not showing up in search do not count.
+    examples:
+      - the more like this search function is nowhere to be found
+      - where is the search button after the recent update? I only see Photos, Collections, Create, Ask
+
+  - id: design_date_grouping
+    name: Date grouping removed
+    parent_id: design_issues
+    definition: Photos no longer grouped by date, making them harder to organise and view.
+    examples:
+      - date grouping disappeared
+
+  - id: system_issues
+    name: System Issues
+    parent_id: null
+    definition: Search fails because of recognition, metadata, bugs, or other retrieval system errors.
+    examples:
+      - face grouping splits one person into two profiles
+      - cannot search by file name
+
+  - id: system_face_grouping
+    name: Face not detected or grouped
+    parent_id: system_issues
+    definition: Challenges searching images because a face was not detected or grouped correctly.
+    examples:
+      - app separates people into two different profiles
+
+  - id: system_metadata_gaps
+    name: Incorrect or missing metadata
+    parent_id: system_issues
+    definition: Challenges searching because place, date, time, file name, or device metadata is wrong or missing.
+    examples:
+      - search by filename does not find it
+      - want photos from a location with a custom radius
+
+  - id: system_object_recognition
+    name: Object or text recognition
+    parent_id: system_issues
+    definition: Challenges searching images due to object recognition or on-image text search.
+    examples:
+      - cannot search text in photos
+
+  - id: system_other_failures
+    name: Other search system failures
+    parent_id: system_issues
+    definition: Search fails to return the desired photo for reasons other than face, metadata, or objects.
+    examples:
+      - cannot find similar or cropped versions of a photo
+
+  - id: system_search_bugs
+    name: Search bugs and glitches
+    parent_id: system_issues
+    definition: Bugs or glitches that hamper search or finding photos.
+    examples:
+      - search locks up the app
+      - AI search crashes
+
+  - id: query_inference
+    name: Query Inference
+    parent_id: null
+    definition: Search fails to understand the user query or follow-up query.
+    examples:
+      - now it says we can't find the search you are looking for
+      - follow up query ignores the initial search
+
+  - id: query_not_understood
+    name: Query not understood
+    parent_id: query_inference
+    definition: Search feature failing to understand the user's query.
+    examples:
+      - did you guys nerf the search function
+
+  - id: query_followup_ignored
+    name: Follow-up query ignored
+    parent_id: query_inference
+    definition: A follow-up search ignores the initial results and jumps to an unrelated photo.
+    examples:
+      - follow up query describes some random photo
+
+  - id: knowledge_awareness_gaps
+    name: Knowledge and Awareness Gaps
+    parent_id: null
+    definition: User did not know a search capability existed, or the capability is hidden or undocumented.
+    examples:
+      - can you search for photos just by their locations
+      - I didn't know I could type what the photo contained
+
+  - id: knowledge_unknown_capability
+    name: Did not know search capability existed
+    parent_id: knowledge_awareness_gaps
+    definition: User did not know a search capability or feature existed, or asks how to use a hidden search feature.
+    examples:
+      - TIL you can search images for what they contain
+      - can you search for photos just by their locations

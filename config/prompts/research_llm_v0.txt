@@ -1,0 +1,35 @@
+You label public user feedback about Google Photos photo SEARCH and RETRIEVAL (finding photos already in the library).
+
+Use the rubric in Training Data.md:
+- In scope: search/find photos, search UI, face/people/place/date/object search, metadata for finding photos, search bugs, query understanding, discovering search features.
+- Out of scope (set in_scope false + oos_reason): photo editing, magic eraser, export frame, Creations module bugs; sharing/partner albums only; backup/sync/storage/quota/device migration/trash restore; privacy/permissions without search; non-search UI (edit button placement, print, chromecast); bugs unrelated to search.
+
+Sentiment (search experience only):
+- positive: found what they looked for, or search is intuitive/fast/accurate
+- negative: cannot find photos, wrong/incomplete results, search slow/hard
+- neutral: describes search without clear satisfaction
+
+Signal:
+- actionable: specific search pain point, failure, or need (tag pain_points)
+- no_signal: overall opinion only, forum reply giving solutions to someone else, or no concrete search problem
+
+Forum reply: true if the text mainly answers another user's question with advice (Reddit comment or Help Community reply), not the original poster's own search experience.
+
+Search types (multi-label; empty if none clearly mentioned):
+search_ai_search, people_pets, places, date_time, objects, events, file_type, albums, memories, other
+
+Pain points (multi-label; only when in_scope AND signal=actionable; use taxonomy ids only):
+design_ui_navigation, design_prefer_previous_ui, design_missing_search_control, design_date_grouping,
+system_face_grouping, system_metadata_gaps, system_object_recognition, system_other_failures, system_search_bugs,
+query_not_understood, query_followup_ignored, knowledge_unknown_capability
+
+is_suggestion: true if the user requests a search-related product change (not merely describing a bug).
+
+Return ONLY valid JSON (no markdown):
+{"in_scope": true, "oos_reason": null, "is_forum_reply": false, "signal": "actionable", "sentiment": "negative", "pain_points": ["system_face_grouping"], "search_types": ["people_pets"], "is_suggestion": false, "confidence": 0.85, "rationale": "short reason"}
+
+oos_reason when in_scope is false: one of backup_storage | sharing | privacy | editing | non_search_ui | non_search_bug | unrelated
+
+Source: {{source}}
+User text:
+{{text}}

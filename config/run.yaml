@@ -1,0 +1,130 @@
+# Analysis run specification. Tune collection before Phase 1; models before Phase 2.
+schema_version: 1
+
+collection:
+  mode: live  # live | fixtures (fixtures for offline/tests)
+  fixtures_dir: tests/fixtures
+
+analysis:
+  corpus_target_relevant: 500
+  taxonomy_version: research_v1
+  gold_set: config/gold_set_research_v1.json
+  # Human-reviewed per-item labels (source:native_id); override heuristic relevance + tags.
+  curated_labels: config/curated_labels_research_v1.jsonl
+  cluster_similarity_threshold: 0.42
+
+date_window:
+  # ISO dates; adapters exclude items outside this window from the analysis corpus.
+  after: "2020-01-01"
+  before: null  # null = up to collection time
+
+app_store:
+  app_id: "962194608"  # Google Photos: Backup & Edit (com.google.photos)
+  storefronts:
+    - us
+    - gb
+    - au
+    - ca
+    - de
+    - fr
+    - in
+    - jp
+    - br
+    - mx
+    - ie
+    - nz
+    - nl
+    - se
+    - it
+    - es
+  max_pages_per_storefront: 10
+  sort: mostrecent
+
+play_store:
+  package_name: com.google.android.apps.photos
+  locales:
+    - hl: en
+      gl: us
+  max_pages: 50  # Play often never returns an empty token; cap pages (100 reviews/page)
+  reviews_per_page: 100
+  page_delay_seconds: 3  # pause between batchexecute pages (rate limiting)
+  sort: newest
+
+reddit:
+  subreddits:
+    - googlephotos
+  keywords:
+    - search
+    - "can't find"
+    - cannot find
+    - old photos
+    - screenshot
+    - find photo
+    - find pictures
+    - metadata
+    - remember when
+  posts_per_request: 100
+  include_comments: true
+
+help_community:
+  discovery:
+    mode: cse_then_browse  # cse_only | browse_only | cse_then_browse (browse_only if CSE 429)
+    skip_cse: true  # false when CSE daily quota is available (100 queries/day)
+    site_restrict: support.google.com/photos/thread
+    cse_daily_query_budget: 100
+    cse_query_delay_seconds: 0.35
+    max_threads: 500
+    search_delay_seconds: 0.8
+    fetch_delay_seconds: 1.2
+    browse_listing_max_results: 100
+    browse_seed_urls:
+      - https://support.google.com/photos/threads
+    # search_queries: omit to use built-in retrieval-focused term list
+  playwright_fallback: true
+
+rag:
+  top_k: 15
+  fetch_k: 80
+  min_relevance: 0.08
+  hybrid_lexical_weight: 0.12  # free hybrid: keyword overlap + vectors
+  rerank:
+    enabled: true  # local cross-encoder; requires pip install -e '.[analysis]'
+    model_id: BAAI/bge-reranker-base
+    candidates: 40
+  synthesis:
+    enabled: false  # auto-enables when GEMINI_API_KEY, GROQ_API_KEY, or HF_TOKEN is in .env
+    provider: huggingface  # gemini | groq | huggingface | ollama
+    model_id: null  # defaults: gemini-2.0-flash | llama-3.1-8b-instant | Qwen/Qwen2.5-7B-Instruct
+    temperature: 0.1
+
+models:
+  embedding:
+    provider: sentence-transformers  # hashing | sentence-transformers | ollama (same id at index/query)
+    # Matches your indexed snapshot + ~/.cache/huggingface (bge-small). Upgrade to bge-large only after re-index.
+    model_id: BAAI/bge-small-en-v1.5
+  classification:
+    # ollama | huggingface | heuristic (heuristic is local rules for offline/CI)
+    provider: heuristic
+    fallback_provider: null
+    model_id: qwen2.5:3b
+    temperature: 0.1
+    prompt_version: classify_v0
+  relevance:
+    provider: ollama
+    model_id: qwen2.5:3b
+    temperature: 0.0
+    prompt_version: research_llm_v0
+
+paths:
+  data_dir: data
+  db_filename: snapshot.db
+  raw_payload_dir: data/raw
+
+serving:
+  bind_host: 127.0.0.1
+  bind_port: 8765  # Python read API; Next.js UI uses 3000
+  ui_port: 3000
+  auth:
+    enabled: false  # set true + user/password, or DISCOVERY_BASIC_USER / DISCOVERY_BASIC_PASSWORD
+    user: null
+    password: null

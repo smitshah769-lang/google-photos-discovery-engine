@@ -1,0 +1,92 @@
+{
+  "version": "v0",
+  "taxonomy_version": "v0",
+  "notes": "Human labels for methodology accuracy. Incomplete-memory items deliberately avoid Goa/café prompt examples (edge §9).",
+  "multi_label_counting_rule": "An item may carry multiple taxonomy node ids. Category frequency is the count of distinct retrieval_related items labeled with that node (an item can increment more than one category). Ambiguous relevance items are excluded from headline frequency until a human accepts them.",
+  "items": [
+    {
+      "id": "gold_incomplete_memory_non_example",
+      "case": "incomplete_memory_phrasing_not_prompt_examples",
+      "text": "I know we photographed the lakeside cabin with my cousin but I cannot remember which summer it was, and library search never brings those pictures up.",
+      "labels": ["incomplete_memory_person_occasion"],
+      "hypothesis": "support"
+    },
+    {
+      "id": "gold_place_no_date",
+      "case": "incomplete_memory_place_event",
+      "text": "Trying to find the night market food stall photos from our trip. I remember the stall and the city walk, just not the date, and search is useless.",
+      "labels": ["incomplete_memory_place_event"],
+      "hypothesis": "support"
+    },
+    {
+      "id": "gold_object_rough_time",
+      "case": "incomplete_memory_object_time",
+      "text": "Need the photo of the warranty card I snapped sometime last autumn. Search by 'warranty' does nothing.",
+      "labels": ["incomplete_memory_object_time"],
+      "hypothesis": "support"
+    },
+    {
+      "id": "gold_backup_not_retrieval",
+      "case": "retrieval_vs_backup",
+      "text": "Nothing to do with finding old memories. Backup never finished after I switched phones and storage quota is full.",
+      "labels": ["backup_sync_storage"],
+      "hypothesis": "contradict"
+    },
+    {
+      "id": "gold_deleted_not_memory",
+      "case": "retrieval_vs_delete",
+      "text": "The photos are in trash and a locked folder. I am not forgetting the date — they were deleted.",
+      "labels": ["deleted_locked_partner_sharing"],
+      "hypothesis": "contradict"
+    },
+    {
+      "id": "gold_complete_info_failure",
+      "case": "complete_info_search_failure",
+      "text": "I searched the exact date 12 March 2019 with the right album name and Google Photos still returned nothing, even though I can scroll to the photo.",
+      "labels": ["query_failure_complete_info"],
+      "hypothesis": "contradict"
+    },
+    {
+      "id": "gold_workaround",
+      "case": "workaround_succeeded",
+      "text": "Search failed so I opened years view and found the photo on my partner's phone instead. That workaround actually worked.",
+      "labels": ["workarounds_succeeded"],
+      "hypothesis": "insufficient"
+    },
+    {
+      "id": "gold_abandonment_only",
+      "case": "abandonment_only",
+      "text": "I tried search two or three times, then gave up. I do not know what kind of problem it was.",
+      "labels": ["search_abandonment"],
+      "hypothesis": "insufficient"
+    },
+    {
+      "id": "gold_multi_label",
+      "case": "multi_label",
+      "text": "I cannot find last year's screenshots no matter what I type, and backup also keeps failing after I deleted some albums.",
+      "labels": ["incomplete_memory_object_time", "backup_sync_storage"],
+      "hypothesis": "support"
+    },
+    {
+      "id": "gold_metadata",
+      "case": "metadata_gaps",
+      "text": "All the dates on my photos are wrong so I cannot find anything by when it happened. People tags are missing too.",
+      "labels": ["metadata_gaps"],
+      "hypothesis": "insufficient"
+    },
+    {
+      "id": "gold_library_scale",
+      "case": "library_scale",
+      "text": "I have thousands of photos, more than 3000, and old pictures from years ago are impossible to browse.",
+      "labels": ["library_scale_recency"],
+      "hypothesis": "insufficient"
+    },
+    {
+      "id": "gold_search_works_upload_problem",
+      "case": "hypothesis_contradicted_search_is_fine",
+      "text": "Search is fine for me. The problem is upload and sync, not finding photos I already have.",
+      "labels": ["backup_sync_storage"],
+      "hypothesis": "contradict"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "feed": {
+    "entry": [
+      {
+        "im:name": { "label": "Google Photos" },
+        "id": { "label": "app-metadata" }
+      },
+      {
+        "id": { "label": "review-1001" },
+        "im:rating": "2",
+        "title": { "label": "Can't find old photos" },
+        "content": {
+          "label": "I search but cannot find pictures from our Goa trip without remembering the date."
+        },
+        "updated": { "label": "2024-06-01T12:00:00-07:00" },
+        "link": { "attributes": { "href": "https://itunes.apple.com/review?id=1001" } }
+      },
+      {
+        "id": { "label": "review-1002" },
+        "im:rating": "5",
+        "title": { "label": "Great backup" },
+        "content": { "label": "Backup and storage work fine." }
+      },
+      {
+        "id": { "label": "review-1003" },
+        "im:rating": "4",
+        "title": { "label": "Stars only" },
+        "content": { "label": "" }
+      }
+    ]
+  }
+}

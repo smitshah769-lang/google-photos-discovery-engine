@@ -1,0 +1,17 @@
+{
+  "name": "photos-discovery-raw-fetch",
+  "private": true,
+  "description": "Raw four-source collector (no relevancy); aligned with config/run.yaml",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "fetch-raw": "node \"fetch reviews.js\""
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "google-play-scraper": "^10.1.3",
+    "js-yaml": "^4.1.0"
+  }
+}
