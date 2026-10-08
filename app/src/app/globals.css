@@ -877,18 +877,24 @@ button.linkish:hover {
 }
 
 .extraction-total-pill {
-  background: #1a222c;
+  background: var(--bg-elevated);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: var(--space-sm) var(--space-md);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  box-shadow: var(--shadow);
+}
+
+.extraction-total-pill .kpi-label {
+  color: var(--muted);
 }
 
 .extraction-total-pill strong {
   font-size: 1.35rem;
   font-weight: 700;
+  color: var(--ink);
 }
 
 .totals-row {
