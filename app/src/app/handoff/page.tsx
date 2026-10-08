@@ -10,7 +10,7 @@ export default function HandoffPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchJson<HandoffPack>("/handoff")
+    fetchJson<HandoffPack>("/api/handoff")
       .then(setPack)
       .catch((err: Error) => setError(err.message));
   }, []);
